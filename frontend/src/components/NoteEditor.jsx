@@ -14,10 +14,7 @@ export default function NoteEditor({ note, onSaved }) {
     }
   }, [note]);
 
-  if (onSaved) {
-  onSaved();
-}
-
+  
   const saveNote = async () => {
   const formData = new FormData();
   formData.append("title", title);
