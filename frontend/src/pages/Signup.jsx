@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../api";
 import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
@@ -7,21 +7,26 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const signup = async () => {
-    const res = await axios.post("http://localhost:5000/api/auth/signup", {
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    await API.post("/auth/signup", {
       email,
       password,
     });
-    localStorage.setItem("token", res.data.token);
-    navigate("/dashboard");
-  };
+    navigate("/login");
+  } catch (err) {
+    alert("Signup failed");
+    console.error(err);
+  }
+};
 
   return (
     <center><div className="container">
       <h2>Signup</h2>
       <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
       <input placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
-      <button onClick={signup}>Signup</button>
+      <button onClick={handleSubmit}>Signup</button>
     </div></center>
   );
 }

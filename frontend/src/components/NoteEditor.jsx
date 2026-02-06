@@ -57,7 +57,7 @@ export default function NoteEditor({ note }) {
 
       <br /><br />
       <button onClick={saveNote}>Save Note</button>
-                             <button onClick={saveNote}>Save Note</button>
+              
 
 {note && (
   <button
@@ -75,13 +75,14 @@ export default function NoteEditor({ note }) {
         <p>
           📎{" "}
           <a
-            href={`http://localhost:5000/${note.file}`}
-            target="_blank"
-            rel="noreferrer"
-            style={{ color: "#ffd700" }}
-          >
-            View File
-          </a>
+  href={`https://mern-notes-backend-qzno.onrender.com/${note.file}`}
+  target="_blank"
+  rel="noreferrer"
+  style={{ color: "#ffd700" }}
+>
+  View File
+</a>
+
         </p>
       )}
     </div>
