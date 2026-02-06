@@ -3,7 +3,13 @@ import NotesList from "../components/NotesList";
 import NoteEditor from "../components/NoteEditor";
 
 export default function Dashboard() {
-  const [selectedNote, setSelectedNote] = useState(null);
+  const [notes, setNotes] = useState([]);
+const [selectedNote, setSelectedNote] = useState(null);
+
+const fetchNotes = async () => {
+  const res = await API.get("/notes");
+  setNotes(res.data);
+};
 
   return (
     <div style={{ display: "flex", height: "100vh" }}>
@@ -13,7 +19,7 @@ export default function Dashboard() {
       </div>
 
       <div style={{ width: "70%", padding: "10px" }}>
-        <NoteEditor note={selectedNote} />
+        <NoteEditor note={selectedNote}  onSaved={fetchNotes}/>
       </div>
     </div>
   );

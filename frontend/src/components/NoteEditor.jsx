@@ -14,31 +14,25 @@ export default function NoteEditor({ note, onSaved }) {
     }
   }, [note]);
 
+  if (onSaved) {
+  onSaved();
+}
+
   const saveNote = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("content", content);
-      if (file) formData.append("file", file);
+  const formData = new FormData();
+  formData.append("title", title);
+  formData.append("content", content);
+  if (file) formData.append("file", file);
 
-      if (note) {
-        await API.put(`/notes/${note._id}`, formData);
-      } else {
-        await API.post("/notes", formData);
-      }
+  if (note) {
+    await API.put(`/notes/${note._id}`, formData);
+  } else {
+    await API.post("/notes", formData);
+  }
 
-      alert("✅ Note saved");
-      setTitle("");
-      setContent("");
-      setFile(null);
-
-      if (onSaved) onSaved(); // refresh notes list safely
-    } catch (err) {
-      alert("❌ Failed to save note");
-      console.error(err);
-    }
-  };
-
+  alert("Note saved");
+  onSaved();
+};
   const deleteNote = async () => {
     try {
       await API.delete(`/notes/${note._id}`);
