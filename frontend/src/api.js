@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://mern-notes-backend-qzno.onrender.com",
 });
 
 // Automatically add token to every request
