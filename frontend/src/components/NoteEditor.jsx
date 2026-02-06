@@ -14,33 +14,49 @@ export default function NoteEditor({ note, onSaved }) {
     }
   }, [note]);
 
-  
   const saveNote = async () => {
-  const formData = new FormData();
-  formData.append("title", title);
-  formData.append("content", content);
-  if (file) formData.append("file", file);
+  try {
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("content", content);
+    if (file) formData.append("file", file);
 
-  if (note) {
-    await API.put(`/notes/${note._id}`, formData);
-  } else {
-    await API.post("/notes", formData);
-  }
-
-  alert("Note saved");
-  onSaved();
-};
-  const deleteNote = async () => {
-    try {
-      await API.delete(`/notes/${note._id}`);
-      alert("🗑️ Note deleted");
-      if (onSaved) onSaved();
-    } catch (err) {
-      alert("❌ Failed to delete note");
-      console.error(err);
+    if (note) {
+      await API.put(`/notes/${note._id}`, formData);
+    } else {
+      await API.post("/notes", formData);
     }
-  };
 
+    setTitle("");
+    setContent("");
+    setFile(null);
+
+    alert("Note saved");
+    onSaved();
+  } catch (err) {
+    console.error(err);
+    alert("Failed to save note");
+  }
+};
+{note && (
+  <button
+    onClick={async () => {
+      try {
+        await API.delete(`/notes/${note._id}`);
+        alert("Note deleted");
+        onSaved();
+      } catch (err) {
+        console.error(err);
+        alert("Delete failed");
+      }
+    }}
+    style={{ marginLeft: "10px", background: "red", color: "white" }}
+  >
+    Delete Note
+  </button>
+)}
+
+  
   return (
     <div>
       <h3>{note ? "Edit Note" : "Create Note"}</h3>
