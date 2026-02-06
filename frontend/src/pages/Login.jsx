@@ -7,7 +7,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
   e.preventDefault();
   try {
     const res = await API.post("/auth/login", {
@@ -26,7 +26,7 @@ export default function Login() {
       <h2>Login</h2>
       <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
       <input placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
-      <button onClick={handleSubmit}>Login</button>
+      <button onClick={handleLogin}>Login</button>
       <p onClick={() => navigate("/signup")}>Create account</p>
     </div></center>
   );
