@@ -33,12 +33,18 @@ export default function Dashboard() {
 
       <div style={{ width: "70%", padding: "10px" }}>
         <NoteEditor
-          note={selectedNote}
-          onSaved={() => {
-            setSelectedNote(null);
-            fetchNotes();
-          }}
-        />
+  note={selectedNote}
+  onSaved={async (savedNoteId) => {
+    const res = await API.get("/notes");
+    setNotes(res.data);
+
+    if (savedNoteId) {
+      const updated = res.data.find(n => n._id === savedNoteId);
+      setSelectedNote(updated || null);
+    }
+  }}
+/>
+
       </div>
     </div>
   );

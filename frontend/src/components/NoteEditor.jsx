@@ -7,12 +7,19 @@ export default function NoteEditor({ note, onSaved }) {
   const [file, setFile] = useState(null);
 
   useEffect(() => {
-    if (note) {
-      setTitle(note.title || "");
-      setContent(note.content || "");
-      setFile(null);
-    }
-  }, [note]);
+  if (!note) {
+    setTitle("");
+    setContent("");
+    setFile(null);
+    return;
+  }
+
+  setTitle(note.title || "");
+  setContent(note.content || "");
+  setFile(null);
+}, [note]);
+ 
+
 
   const saveNote = async () => {
   try {
@@ -20,42 +27,25 @@ export default function NoteEditor({ note, onSaved }) {
     formData.append("title", title);
     formData.append("content", content);
     if (file) formData.append("file", file);
+     
+    let res;
 
-    if (note) {
-      await API.put(`/notes/${note._id}`, formData);
-    } else {
-      await API.post("/notes", formData);
-    }
+if (note) {
+  res = await API.put(`/notes/${note._id}`, formData);
+  onSaved(note._id);
+} else {
+  res = await API.post("/notes", formData);
+  onSaved(res.data._id);
+}
 
-    setTitle("");
-    setContent("");
-    setFile(null);
+alert("Note saved");
 
-    alert("Note saved");
-    onSaved();
+    
   } catch (err) {
     console.error(err);
     alert("Failed to save note");
   }
 };
-{note && (
-  <button
-    onClick={async () => {
-      try {
-        await API.delete(`/notes/${note._id}`);
-        alert("Note deleted");
-        onSaved();
-      } catch (err) {
-        console.error(err);
-        alert("Delete failed");
-      }
-    }}
-    style={{ marginLeft: "10px", background: "red", color: "white" }}
-  >
-    Delete Note
-  </button>
-)}
-
   
   return (
     <div>
@@ -83,21 +73,35 @@ export default function NoteEditor({ note, onSaved }) {
 
       <br /><br />
       <button onClick={saveNote}>Save Note</button>
-
       {note && (
-        <button
-          onClick={deleteNote}
-          style={{ marginLeft: "10px", background: "red", color: "white" }}
-        >
-          Delete Note
-        </button>
-      )}
+  
+  <button
+    onClick={async () => {
+      try {
+        await API.delete(`/notes/${note._id}`);
+        alert("Note deleted");
+        onSaved(null);   // 👈 important
+      } catch (err) {
+        console.error(err);
+        alert("Delete failed");
+      }
+    }}
+    style={{
+      marginLeft: "10px",
+      background: "red",
+      color: "white"
+    }}
+  >
+    Delete Note
+  </button>
+)}
+
 
       {note?.file && (
         <p>
           📎{" "}
           <a
-            href={`https://mern-notes-backend-qzno.onrender.com/${note.file}`}
+            href={`https://mern-notes-backend-qzno.onrender.com/uploads/${note.file}`}
             target="_blank"
             rel="noreferrer"
             style={{ color: "#ffd700" }}
