@@ -22,7 +22,19 @@ export default function Dashboard() {
 
   return (
     <div style={{ display: "flex", height: "100vh" }}>
-      <div style={{ width: "30%", borderRight: "1px solid #ffd700", padding: "10px" }}>
+      <h2 style={{ color: "#ffd700", marginBottom: "10px" }}>
+  Easy Study  
+</h2>
+  <div
+  style={{
+    width: "30%",
+    borderRight: "1px solid #ffd700",
+    padding: "10px",
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+
         <h3>Your Notes</h3>
 
         <button
@@ -60,6 +72,21 @@ export default function Dashboard() {
   }}
 />
       </div>
+      <div style={{ marginTop: "auto", paddingTop: "20px" }}>
+  <a
+    href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME"
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      color: "#ffd700",
+      textDecoration: "none",
+      fontWeight: "bold"
+    }}
+  >
+    📸 Follow me on Instagram
+  </a>
+</div>
+
     </div>
   );
 }
