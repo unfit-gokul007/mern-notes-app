@@ -34,7 +34,7 @@ router.post("/", authMiddleware, upload.single("file"), async (req, res) => {
     const note = await Note.create({
       title,
       content,
-      file: req.file ? req.file.path : null,
+      file: req.file ? req.file.filename : null,
       user: req.user,
     });
     res.json(note);
@@ -42,6 +42,7 @@ router.post("/", authMiddleware, upload.single("file"), async (req, res) => {
     res.status(500).json({ message: "Error creating note" });
   }
 });
+
 
 // Get Notes
 router.get("/", authMiddleware, async (req, res) => {
@@ -52,18 +53,21 @@ router.get("/", authMiddleware, async (req, res) => {
 // Update Note
 router.put("/:id", authMiddleware, upload.single("file"), async (req, res) => {
   const updateData = {
-  title: req.body.title,
-  content: req.body.content,
-};
-if (req.file) {
-  updateData.file = req.file.path;
-}
-const note = await Note.findOneAndUpdate(
-  { _id: req.params.id, user: req.user },
-  updateData,
-  { new: true }
-);
-res.json(note);
+    title: req.body.title,
+    content: req.body.content,
+  };
+
+  if (req.file) {
+    updateData.file = req.file.filename;
+  }
+
+  const note = await Note.findOneAndUpdate(
+    { _id: req.params.id, user: req.user },
+    updateData,
+    { new: true }
+  );
+
+  res.json(note);
 });
 
 // Delete Note
