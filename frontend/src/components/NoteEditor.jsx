@@ -27,25 +27,26 @@ export default function NoteEditor({ note, onSaved }) {
     formData.append("title", title);
     formData.append("content", content);
     if (file) formData.append("file", file);
-     
-    let res;
 
-if (note) {
-  res = await API.put(`/notes/${note._id}`, formData);
-  onSaved(note._id);
-} else {
-  res = await API.post("/notes", formData);
-  onSaved(res.data._id);
-}
+    const res = note
+      ? await API.put(`/notes/${note._id}`, formData)
+      : await API.post("/notes", formData);
 
-alert("Note saved");
+    if (!res.data) {
+      throw new Error("Note not saved");
+    }
 
-    
+    setTitle("");
+    setContent("");
+    setFile(null);
+
+    onSaved(); // 👈 refresh notes
   } catch (err) {
     console.error(err);
     alert("Failed to save note");
   }
 };
+
   
   return (
     <div>

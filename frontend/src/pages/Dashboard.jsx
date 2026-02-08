@@ -25,6 +25,21 @@ export default function Dashboard() {
       <div style={{ width: "30%", borderRight: "1px solid #ffd700", padding: "10px" }}>
         <h3>Your Notes</h3>
 
+        <button
+  onClick={() => setSelectedNote(null)}
+  style={{
+    width: "100%",
+    marginBottom: "10px",
+    padding: "8px",
+    background: "#ffd700",
+    color: "#000",
+    fontWeight: "bold",
+    cursor: "pointer"
+  }}
+>
+  + New Note
+</button>
+
         <NotesList
           notes={notes}
           onSelect={setSelectedNote}

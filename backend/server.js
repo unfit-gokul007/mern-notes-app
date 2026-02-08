@@ -4,6 +4,15 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path");
 
+
+
+
+const __dirname = path.resolve();
+
+
+
+
+
 dotenv.config();
 const connectDB = require("./config/db");
 
