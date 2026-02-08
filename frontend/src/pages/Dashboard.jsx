@@ -74,7 +74,7 @@ export default function Dashboard() {
       </div>
       <div style={{ marginTop: "auto", paddingTop: "20px" }}>
   <a
-    href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME"
+    href="https://www.instagram.com/unfit_gokul"
     target="_blank"
     rel="noreferrer"
     style={{
