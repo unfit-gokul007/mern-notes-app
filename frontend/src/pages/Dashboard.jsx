@@ -59,11 +59,6 @@ export default function Dashboard() {
     }
   }}
 />
-onSaved={() => {
-  fetchNotes();
-  setSelectedNote(null); // 👈 REQUIRED
-}}
-
       </div>
     </div>
   );
