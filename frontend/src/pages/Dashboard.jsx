@@ -21,32 +21,47 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
-      <h2 style={{ color: "#ffd700", marginBottom: "10px" }}>
-  Easy Study  
-</h2>
-  <div
+    
+    <div
   style={{
-    width: "30%",
-    borderRight: "1px solid #ffd700",
-    padding: "10px",
     display: "flex",
-    flexDirection: "column",
+    height: "100vh",
+    backgroundColor: "#ffffff",
+    color: "#0f172a",
   }}
 >
 
-        <h3>Your Notes</h3>
+     <h2 style={{ color: "#2563eb", marginBottom: "10px" }}>
+  Easy Study
+</h2>
+
+  <div
+  style={{
+    width: "30%",
+    borderRight: "2px solid #93c5fd",
+    padding: "12px",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#f8fafc",
+  }}
+>
+
+
+        <h3 style={{ color: "#2563eb" }}>Your Notes</h3>
+
 
         <button
   onClick={() => setSelectedNote(null)}
-  style={{
+   style={{
     width: "100%",
     marginBottom: "10px",
-    padding: "8px",
-    background: "#ffd700",
-    color: "#000",
+    padding: "10px",
+    background: "#2563eb",
+    color: "#ffffff",
     fontWeight: "bold",
-    cursor: "pointer"
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
   }}
 >
   + New Note
@@ -58,7 +73,14 @@ export default function Dashboard() {
         />
       </div>
 
-      <div style={{ width: "70%", padding: "10px" }}>
+      <div
+  style={{
+    width: "70%",
+    padding: "16px",
+    backgroundColor: "#ffffff",
+  }}
+>
+
         <NoteEditor
   note={selectedNote}
   onSaved={async (savedNoteId) => {
@@ -77,10 +99,10 @@ export default function Dashboard() {
     href="https://www.instagram.com/unfit_gokul"
     target="_blank"
     rel="noreferrer"
-    style={{
-      color: "#ffd700",
-      textDecoration: "none",
-      fontWeight: "bold"
+     style={{
+    color: "#2563eb",
+    textDecoration: "none",
+    fontWeight: "bold",
     }}
   >
     📸 Follow me on Instagram
