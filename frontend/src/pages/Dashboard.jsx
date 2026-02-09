@@ -5,17 +5,6 @@ import NoteEditor from "../components/NoteEditor";
 import { useNavigate } from "react-router-dom";
 
 
-const navigate = useNavigate();
-
-
-
-useEffect(() => {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    navigate("/login");
-  }
-}, [navigate]);
-
 
 
 
@@ -24,6 +13,20 @@ useEffect(() => {
 export default function Dashboard() {
   const [notes, setNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
+
+
+const navigate = useNavigate(); // ✅ INSIDE component
+
+  // ✅ Protect dashboard
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
+
+
 
   const fetchNotes = async () => {
     try {
