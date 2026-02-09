@@ -73,6 +73,7 @@ const logout = () => {
       background: "#dc2626",
       color: "#ffffff",
       border: "none",
+      height:"5px",
       padding: "5px 10px",
       borderRadius: "6px",
       cursor: "pointer",
