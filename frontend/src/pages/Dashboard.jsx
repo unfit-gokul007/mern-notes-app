@@ -2,6 +2,24 @@ import { useState, useEffect } from "react";
 import API from "../api";
 import NotesList from "../components/NotesList";
 import NoteEditor from "../components/NoteEditor";
+import { useNavigate } from "react-router-dom";
+
+
+const navigate = useNavigate();
+
+
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/login");
+  }
+}, [navigate]);
+
+
+
+
+
 
 export default function Dashboard() {
   const [notes, setNotes] = useState([]);
@@ -20,6 +38,16 @@ export default function Dashboard() {
     fetchNotes();
   }, []);
 
+
+const logout = () => {
+  localStorage.removeItem("token");
+  navigate("/login");
+};
+
+
+  
+
+
   return (
     
     <div
@@ -34,6 +62,25 @@ export default function Dashboard() {
      <h2 style={{ color: "#2563eb", marginBottom: "10px" }}>
   Easy Study
 </h2>
+
+
+  <button
+    onClick={logout}
+    style={{
+      background: "#dc2626",
+      color: "#ffffff",
+      border: "none",
+      padding: "8px 14px",
+      borderRadius: "6px",
+      cursor: "pointer",
+      fontWeight: "bold",
+    }}
+  >
+    Logout
+  </button>
+
+
+
 
   <div
   style={{
