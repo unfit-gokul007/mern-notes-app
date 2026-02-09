@@ -63,17 +63,35 @@ export default function NoteEditor({ note, onSaved }) {
         rows="10"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        style={{ marginTop: "10px" }}
+         style={{
+    width: "100%",
+    padding: "8px",
+    border: "1px solid #93c5fd",
+    borderRadius: "5px",
+  }}
       />
 
       <input
         type="file"
         onChange={(e) => setFile(e.target.files[0])}
-        style={{ marginTop: "10px" }}
+          style={{
+    marginTop: "10px",
+    width: "100%",
+    padding: "8px",
+    border: "1px solid #93c5fd",
+    borderRadius: "5px",
+  }}
       />
 
       <br /><br />
-      <button onClick={saveNote}>Save Note</button>
+      <button onClick={saveNote} style={{
+    background: "#2563eb",
+    color: "white",
+    padding: "8px 14px",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
+  }}>Save Note</button>
       {note && (
   
   <button
@@ -87,11 +105,15 @@ export default function NoteEditor({ note, onSaved }) {
         alert("Delete failed");
       }
     }}
-    style={{
-      marginLeft: "10px",
-      background: "red",
-      color: "white"
-    }}
+     style={{
+    marginLeft: "10px",
+    background: "#dc2626",
+    color: "white",
+    padding: "8px 14px",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
+  }}
   >
     Delete Note
   </button>
@@ -105,7 +127,7 @@ export default function NoteEditor({ note, onSaved }) {
             href={`https://mern-notes-backend-qzno.onrender.com/uploads/${note.file}`}
             target="_blank"
             rel="noreferrer"
-            style={{ color: "#ffd700" }}
+              style={{ color: "#2563eb" }}
           >
             View File
           </a>
