@@ -53,16 +53,12 @@ const logout = () => {
 
   return (
     
-  <div
+    <div
   style={{
-    width: "100%",
-    height: "60px",
     display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "0 20px",
-    backgroundColor: "#e0f2fe",
-    borderBottom: "2px solid #93c5fd",
+    height: "100vh",
+    backgroundColor: "#ffffff",
+    color: "#0f172a",
   }}
 >
 
@@ -74,7 +70,7 @@ const logout = () => {
   <button
     onClick={logout}
       
-     style={{
+    style={{
       background: "#dc2626",
       color: "#ffffff",
       border: "none",
