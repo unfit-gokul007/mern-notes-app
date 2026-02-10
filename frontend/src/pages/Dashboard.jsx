@@ -14,7 +14,15 @@ export default function Dashboard() {
   const [notes, setNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
   const [search, setSearch] = useState("");
-const isMobile = window.innerWidth <= 768;
+  
+
+
+
+  const width = window.innerWidth;
+
+const isMobile = width <= 640;     // phones
+const isTablet = width > 640 && width <= 1024; // tablets
+const isDesktop = width > 1024;   // laptops & desktops
 
 
 
@@ -70,31 +78,50 @@ const logout = () => {
   return (
     
     <div
-    style={{
+     style={{
+    minHeight: "100vh",
+    backgroundColor: "#f8fafc",
     display: "flex",
-    flexDirection: isMobile ? "column" : "row",
-    height: "100vh",
+    flexDirection: "column",
   }}
 >
 
-     <h2 style={{ color: "#2563eb", marginBottom: "10px" }}>
+     <h2  style={{
+    padding: "14px 20px",
+    fontSize: isMobile ? "20px" : "24px",
+    fontWeight: "bold",
+    color: "#2563eb",
+    borderBottom: "1px solid #93c5fd",
+    textAlign: isMobile ? "center" : "left",
+  }}>
   Easy Study
 </h2>
 
 
   <div
-  style={{
-    width: "30%",
-    borderRight: "2px solid #93c5fd",
-    padding: "12px",
+    style={{
     display: "flex",
-    flexDirection: "column",
-    backgroundColor: "#f8fafc",
+    flexDirection: isMobile ? "column" : "row",
+    flex: 1,
+    maxWidth: "1400px",     // prevents ultra-wide stretch
+    margin: "0 auto",       // center on large screens
+    width: "100%",
   }}
 >
 
 
-        <h3 style={{ color: "#2563eb" }}>Your Notes</h3>
+        <h3 style= {{
+    width: isMobile
+      ? "100%"
+      : isTablet
+      ? "40%"
+      : "30%",
+    padding: "12px",
+    backgroundColor: "#f8fafc",
+    borderRight: isMobile ? "none" : "2px solid #93c5fd",
+    borderBottom: isMobile ? "2px solid #93c5fd" : "none",
+    boxSizing: "border-box",
+  }}>Your Notes</h3>
 
 
 <input
@@ -137,10 +164,15 @@ const logout = () => {
       </div>
 
       <div
-  style={{
-    width: "70%",
+   style={{
+    width: isMobile
+      ? "100%"
+      : isTablet
+      ? "60%"
+      : "70%",
     padding: "16px",
     backgroundColor: "#ffffff",
+    boxSizing: "border-box",
   }}
 >
 
@@ -158,12 +190,7 @@ const logout = () => {
   }}
 />
 
-<button onClick={logout}
-      
-     style={{ marginTop: "auto", paddingBottom: "20px" , fontWeight: "bold",}}
-  >
-    Logout 
-  </button>
+<button onClick={logout} style={{ marginTop: "auto", paddingBottom: "20px" , fontWeight: "bold",}}>Logout</button>
 
 
 

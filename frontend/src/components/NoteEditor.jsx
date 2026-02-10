@@ -50,7 +50,6 @@ export default function NoteEditor({ note, onSaved,isMobile }) {
   
   return (
     <div  style={{
-    width: isMobile ? "100%" : "70%",
     padding: "16px",
     backgroundColor: "#ffffff",
   }}>
@@ -68,11 +67,7 @@ export default function NoteEditor({ note, onSaved,isMobile }) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
          style={{
-    width: "100%",
-    padding: "8px",
-    border: "1px solid #93c5fd",
-    borderRadius: "5px",
-  }}
+    width: "100%" }}
       />
 
       <input
