@@ -130,6 +130,21 @@ const logout = () => {
     }
   }}
 />
+
+<button onClick={logout}
+      
+     style={{ marginTop: "auto", paddingTop: "20px" }}
+  >
+    Logout
+  </button>
+
+
+
+
+
+
+
+
       </div>
       <div style={{ marginTop: "auto", paddingTop: "20px" }}>
   <a
@@ -146,23 +161,6 @@ const logout = () => {
   </a>
 </div>
 
-
-<button
-    onClick={logout}
-      
-     style={{
-    width: "100%",
-    background: "#dc2626",
-    color: "#fff",
-    border: "none",
-    padding: "12px",
-    borderRadius: "6px",
-    fontWeight: "bold",
-    marginTop: "10px",
-  }}   
-  >
-    Logout
-  </button>
 
 
 
