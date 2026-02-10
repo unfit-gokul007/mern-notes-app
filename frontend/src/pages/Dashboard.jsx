@@ -124,44 +124,56 @@ const logout = () => {
   }}>Your Notes</h3>
 
 
+<div
+  style={{
+    display: "flex",
+    gap: "10px",
+    alignItems: "center",
+    marginBottom: "12px",
+  }}
+>
+
+
 <input
   type="text"
   placeholder="Search notes..."
   value={search}
   onChange={(e) => setSearch(e.target.value)}
   style={{
-    padding: "8px",
-    marginBottom: "10px",
-    borderRadius: "6px",
-    border: "1px solid #93c5fd",
-    width: "100%",
-  }}
+    flex: 1,
+      height: "42px",
+      padding: "0 12px",
+      borderRadius: "6px",
+      border: "1px solid #93c5fd",
+      outline: "none", }}
 />
 
 
         <button
   onClick={() => setSelectedNote(null)}
    style={{
-    width: "100%",
-    marginBottom: "10px",
-    padding: "10px",
-    background: "#2563eb",
-    color: "#ffffff",
-    fontWeight: "bold",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
+      height: "42px",
+      padding: "0 18px",
+      background: "#2563eb",
+      color: "#fff",
+      border: "none",
+      borderRadius: "6px",
+      fontWeight: "bold",
+      cursor: "pointer",
+      whiteSpace: "nowrap",
   }}
 >
   + New Note
 </button>
+</div>
 
+<div style={{ marginTop: "4px" }}>
         <NotesList
           notes={filteredNotes}
           onSelect={setSelectedNote}
            isMobile={isMobile}
-        />
-      </div>
+        /></div>
+      
 
       <div
    style={{
@@ -174,7 +186,7 @@ const logout = () => {
     backgroundColor: "#ffffff",
     boxSizing: "border-box",
   }}
->
+></div>
 
         <NoteEditor
   note={selectedNote}
