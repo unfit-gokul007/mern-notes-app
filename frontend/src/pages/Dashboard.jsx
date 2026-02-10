@@ -105,6 +105,7 @@ const logout = () => {
         <NotesList
           notes={notes}
           onSelect={setSelectedNote}
+           isMobile={isMobile}
         />
       </div>
 
@@ -118,6 +119,7 @@ const logout = () => {
 
         <NoteEditor
   note={selectedNote}
+   isMobile={isMobile}
   onSaved={async (savedNoteId) => {
     const res = await API.get("/notes");
     setNotes(res.data);

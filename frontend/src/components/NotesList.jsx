@@ -1,4 +1,4 @@
-export default function NotesList({ notes, onSelect }) {
+export default function NotesList({ notes, onSelect,isMobile }) {
   if (!notes || notes.length === 0) {
     return <p style={{ color: "#64748b" }}>No notes yet</p>;
   }

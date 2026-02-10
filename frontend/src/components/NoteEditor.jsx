@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../api";
 
-export default function NoteEditor({ note, onSaved }) {
+export default function NoteEditor({ note, onSaved,isMobile }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
