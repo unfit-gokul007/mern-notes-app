@@ -133,7 +133,7 @@ const logout = () => {
 
 <button onClick={logout}
       
-     style={{ marginTop: "auto", paddingBottom: "20px" , }}
+     style={{ marginTop: "auto", paddingBottom: "20px" , paddingLeft : "20px"}}
   >
     Logout 
   </button>
