@@ -190,7 +190,9 @@ const logout = () => {
   }}
 />
 
-<button onClick={logout} style={{ marginTop: "auto", paddingBottom: "20px" , fontWeight: "bold",}}>Logout</button>
+
+
+<button onClick={logout}>Logout</button>
 
 
 
