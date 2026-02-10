@@ -67,25 +67,6 @@ const logout = () => {
 </h2>
 
 
-  <button
-    onClick={logout}
-      
-    style={{
-      background: "#dc2626",
-      color: "#ffffff",
-      border: "none",
-      padding: "8px 14px",
-      borderRadius: "6px",
-      cursor: "pointer",
-      fontWeight: "bold",
-    }}
-  >
-    Logout
-  </button>
-
-
-
-
   <div
   style={{
     width: "30%",
@@ -159,6 +140,26 @@ const logout = () => {
     📸 Follow me on Instagram
   </a>
 </div>
+
+
+<button
+    onClick={logout}
+      
+    style={{
+      background: "#dc2626",
+      color: "#ffffff",
+      border: "none",
+      padding: "8px 14px",
+      borderRadius: "6px",
+      cursor: "pointer",
+      fontWeight: "bold",
+    }}
+  >
+    Logout
+  </button>
+
+
+
 
     </div>
   );
