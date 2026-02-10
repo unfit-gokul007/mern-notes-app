@@ -9,14 +9,14 @@ export default function NotesList({ notes, onSelect }) {
         <div
           key={note._id}
           onClick={() => onSelect(note)}
-           style={{
-    padding: "10px",
-    marginBottom: "8px",
-    cursor: "pointer",
-    border: "1px solid #93c5fd",
-    borderRadius: "6px",
-    background: "#ffffff",
-    color: "#1e3a8a",
+            style={{
+    width: isMobile ? "100%" : "30%",
+    borderRight: isMobile ? "none" : "2px solid #93c5fd",
+    borderBottom: isMobile ? "2px solid #93c5fd" : "none",
+    padding: "12px",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#f8fafc",
   }}
         >
           <strong>{note.title || "Untitled"}</strong>

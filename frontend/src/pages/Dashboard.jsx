@@ -14,6 +14,10 @@ export default function Dashboard() {
   const [notes, setNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
 
+const isMobile = window.innerWidth <= 768;
+
+
+
 
 const navigate = useNavigate(); // ✅ INSIDE component
 
@@ -54,11 +58,10 @@ const logout = () => {
   return (
     
     <div
-  style={{
+    style={{
     display: "flex",
+    flexDirection: isMobile ? "column" : "row",
     height: "100vh",
-    backgroundColor: "#ffffff",
-    color: "#0f172a",
   }}
 >
 
@@ -145,15 +148,16 @@ const logout = () => {
 <button
     onClick={logout}
       
-    style={{
-      background: "#dc2626",
-      color: "#ffffff",
-      border: "none",
-      padding: "8px 14px",
-      borderRadius: "6px",
-      cursor: "pointer",
-      fontWeight: "bold",
-    }}
+     style={{
+    width: "100%",
+    background: "#dc2626",
+    color: "#fff",
+    border: "none",
+    padding: "12px",
+    borderRadius: "6px",
+    fontWeight: "bold",
+    marginTop: "10px",
+  }}   
   >
     Logout
   </button>

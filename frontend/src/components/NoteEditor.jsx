@@ -49,16 +49,20 @@ export default function NoteEditor({ note, onSaved }) {
 
   
   return (
-    <div>
+    <div  style={{
+    width: isMobile ? "100%" : "70%",
+    padding: "16px",
+    backgroundColor: "#ffffff",
+  }}>
       <h3>{note ? "Edit Note" : "Create Note"}</h3>
 
-      <input
+      <input  style={{ width: "100%" }}
         placeholder="Note title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <textarea
+      <textarea 
         placeholder="Write your note..."
         rows="10"
         value={content}
