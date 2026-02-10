@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 export default function Dashboard() {
   const [notes, setNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
-
+  const [search, setSearch] = useState("");
 const isMobile = window.innerWidth <= 768;
 
 
@@ -44,6 +44,18 @@ const navigate = useNavigate(); // ✅ INSIDE component
   useEffect(() => {
     fetchNotes();
   }, []);
+
+
+
+  const filteredNotes = notes.filter((note) => {
+  const title = note.title?.toLowerCase() || "";
+  const content = note.content?.toLowerCase() || "";
+
+  return (
+    title.includes(search.toLowerCase()) ||
+    content.includes(search.toLowerCase())
+  );
+});
 
 
 const logout = () => {
@@ -85,6 +97,21 @@ const logout = () => {
         <h3 style={{ color: "#2563eb" }}>Your Notes</h3>
 
 
+<input
+  type="text"
+  placeholder="Search notes..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  style={{
+    padding: "8px",
+    marginBottom: "10px",
+    borderRadius: "6px",
+    border: "1px solid #93c5fd",
+    width: "100%",
+  }}
+/>
+
+
         <button
   onClick={() => setSelectedNote(null)}
    style={{
@@ -103,7 +130,7 @@ const logout = () => {
 </button>
 
         <NotesList
-          notes={notes}
+          notes={filteredNotes}
           onSelect={setSelectedNote}
            isMobile={isMobile}
         />
