@@ -122,27 +122,31 @@ const logout = () => {
     borderBottom: isMobile ? "2px solid #93c5fd" : "none",
     boxSizing: "border-box",
   }}>Your Notes</h3>
+
+<NotesList
+          notes={filteredNotes}
+          onSelect={setSelectedNote}
+           isMobile={isMobile}
+        />
+
+
 <input
   type="text"
   placeholder="Search notes..."
   value={search}
   onChange={(e) => setSearch(e.target.value)}
   style={{
-    padding: "4px",
-    marginBottom: "10px",
+    background: "#2563eb",
+    color: "#ffffff",
+    fontWeight: "bold",
+    border: "none",
     borderRadius: "6px",
-    border: "1px solid #93c5fd",
-    width: "10%",
+    cursor: "pointer",
   }}
 />
-
-
-        <button
+      <button
   onClick={() => setSelectedNote(null)}
    style={{
-    width: "10%",
-    marginBottom: "10px",
-    padding: "5px",
     background: "#2563eb",
     color: "#ffffff",
     fontWeight: "bold",
@@ -154,11 +158,7 @@ const logout = () => {
   + New Note
 </button>
 
-        <NotesList
-          notes={filteredNotes}
-          onSelect={setSelectedNote}
-           isMobile={isMobile}
-        />
+        
       </div>
 
       <div
