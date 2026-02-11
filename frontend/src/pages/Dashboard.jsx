@@ -115,10 +115,11 @@ const logout = () => {
 <input
   type="text"
   placeholder="Search notes..."
-  value={search}
+  value={search}  Search Notes 
   onChange={(e) => setSearch(e.target.value)}
   style={{
     padding: "8px",
+    color: "#2563eb",
     marginBottom: "10px",
     borderRadius: "6px",
     border: "1px solid #93c5fd",
@@ -134,7 +135,6 @@ const logout = () => {
     marginBottom: "10px",
     padding: "10px",
     background: "#2563eb",
-    color: "#ffffff",
     fontWeight: "bold",
     border: "none",
     borderRadius: "6px",
@@ -152,12 +152,13 @@ const logout = () => {
       ? "40%"
       : "30%",
     padding: "10px",
+    color: "#2563eb",
     backgroundColor: "#f8fafc",
     borderRight: isMobile ? "none" : "2px solid #93c5fd",
     borderBottom: isMobile ? "2px solid #93c5fd" : "none",
     boxSizing: "border-box",
   }}>Your Notes</h3></div>
-<div style={{paddingRight:"5px"}}>
+<div style={{paddingLeft:"10px"}}>
         <NotesList
           notes={filteredNotes}
           onSelect={setSelectedNote}
@@ -168,7 +169,8 @@ const logout = () => {
   style={{
     width: "70%",
     padding: "16px",
-    backgroundColor: "#ffffff",
+    color: "#030711",
+    backgroundColor: "#f7eaea",
   }}
 >
 
@@ -186,7 +188,7 @@ const logout = () => {
   }}
 />
 
-<button onClick={logout}  style={{ marginTop: "auto", paddingBottom: "20px" , fontWeight: "bold",}} >Logout </button>
+<div><button onClick={logout}  style={{ marginTop: "auto", paddingBottom: "15px" , fontWeight: "bold",color:"red",}} >Logout </button></div>
 
 
 
