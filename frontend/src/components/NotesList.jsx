@@ -9,12 +9,7 @@ export default function NotesList({ notes, onSelect,isMobile }) {
         <div
           key={note._id}
           onClick={() => onSelect(note)}
-            style={{
-    padding: "10px",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "#f8fafc",
-  }}
+            style={{color:"#030711"}}
         >
           <strong>{note.title || "Untitled"}</strong>
         </div>
