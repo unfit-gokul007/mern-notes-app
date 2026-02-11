@@ -125,10 +125,10 @@ const logout = () => {
   }}
 >
   + New Note
-</button>
+</button><h1>
 Your Notes
     <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
-      
+      </h1>
   </div>
 
         
@@ -138,7 +138,6 @@ Your Notes
     width: "70%",
     padding: "16px",
     color: "#030711",
-    backgroundColor: "#08b3f7",
   }}
 >
 
