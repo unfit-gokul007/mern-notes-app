@@ -126,7 +126,7 @@ const logout = () => {
   }}
 />
 
-
+<div>
         <button
   onClick={() => setSelectedNote(null)}
    style={{
@@ -143,7 +143,7 @@ const logout = () => {
 >
   + New Note
 </button>
-
+</div>
 
 <h3 style= {{
     width: isMobile
@@ -151,19 +151,19 @@ const logout = () => {
       : isTablet
       ? "40%"
       : "30%",
-    padding: "12px",
+    padding: "10px",
     backgroundColor: "#f8fafc",
     borderRight: isMobile ? "none" : "2px solid #93c5fd",
     borderBottom: isMobile ? "2px solid #93c5fd" : "none",
     boxSizing: "border-box",
-  }}>Your Notes</h3>
-
+  }}>Your Notes</h3></div>
+<div style={{paddingRight:"5px"}}>
         <NotesList
           notes={filteredNotes}
           onSelect={setSelectedNote}
         />
-      </div>
-
+      
+</div>
       <div
   style={{
     width: "70%",
