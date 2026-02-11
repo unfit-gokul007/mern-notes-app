@@ -126,16 +126,7 @@ const logout = () => {
 >
   + New Note
 </button>
-
-
-<h3 style= {{
-    padding: "10px",
-    color: "#2563eb",
-    backgroundColor: "#f8fafc",
-    borderRight: isMobile ? "none" : "2px solid #93c5fd",
-    borderBottom: isMobile ? "2px solid #93c5fd" : "none",
-    boxSizing: "border-box",
-  }}>Your Notes</h3>
+Your Notes
     <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
       
   </div>
