@@ -99,7 +99,6 @@ const logout = () => {
   <li>
 <h1>Search Note <input  
   type="text"
-  placeholder="Search notes..."
   value={search} 
   onChange={(e) => setSearch(e.target.value)}
   style={{

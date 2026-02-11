@@ -51,6 +51,7 @@ export default function NoteEditor({ note, onSaved,isMobile }) {
   return (
     <div  style={{
     padding: "16px",
+    marginBottom:"40px",
     scrollMarginBottom:"300px",
     backgroundColor: "#ffffff",
   }}>
