@@ -96,23 +96,9 @@ const logout = () => {
   }}>
   Easy Study
 </h2>
-
-
-  <div
-    style={{
-    display: "flex",
-    flexDirection: isMobile ? "column" : "row",
-    flex: 1,
-    maxWidth: "1400px",     // prevents ultra-wide stretch
-    margin: "0 auto",       // center on large screens
-    width: "100%",
-  }}
->
-
-
-        
  
-<input Search Notes 
+<div> 
+<input  
   type="text"
   placeholder="Search notes..."
   value={search} 
@@ -131,26 +117,20 @@ const logout = () => {
         <button
   onClick={() => setSelectedNote(null)}
    style={{
-    width: "50%",
-    marginBottom: "10px",
+    width: "95px",
     padding: "10px",
     background: "#2563eb",
     fontWeight: "bold",
-    border: "none",
-    borderRadius: "6px",
+    boxSizing: "border-box",
     cursor: "pointer",
   }}
 >
   + New Note
 </button>
+
 </div>
 
 <h3 style= {{
-    width: isMobile
-      ? "100%"
-      : isTablet
-      ? "40%"
-      : "30%",
     padding: "10px",
     color: "#2563eb",
     backgroundColor: "#f8fafc",
@@ -158,13 +138,8 @@ const logout = () => {
     borderBottom: isMobile ? "2px solid #93c5fd" : "none",
     boxSizing: "border-box",
   }}>Your Notes</h3>
-  <p>
-    <NotesList
-          notes={filteredNotes}
-          onSelect={setSelectedNote}
-        />
+    <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
       
-  </p>
   </div>
 
         

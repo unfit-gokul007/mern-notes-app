@@ -10,10 +10,7 @@ export default function NotesList({ notes, onSelect,isMobile }) {
           key={note._id}
           onClick={() => onSelect(note)}
             style={{
-    width: isMobile ? "100%" : "30%",
-    borderRight: isMobile ? "none" : "2px solid #93c5fd",
-    borderBottom: isMobile ? "2px solid #93c5fd" : "none",
-    padding: "12px",
+    padding: "10px",
     display: "flex",
     flexDirection: "column",
     backgroundColor: "#f8fafc",
