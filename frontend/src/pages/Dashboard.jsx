@@ -18,7 +18,12 @@ export default function Dashboard() {
 
 
 
- 
+  const width = window.innerWidth;
+
+const isMobile = width <= 640;     // phones
+const isTablet = width > 640 && width <= 1024; // tablets
+const isDesktop = width > 1024;   // laptops & desktops
+
 
 
 
@@ -87,7 +92,7 @@ const logout = () => {
     fontWeight: "bold",
     color: "#2563eb",
     borderBottom: "1px solid #93c5fd",
-    
+    textAlign: isMobile ? "center" : "left",
   }}>
   Easy Study
 </h2>
@@ -122,23 +127,27 @@ const logout = () => {
   + New Note
 </button>
 
+
 <h3 style= {{
     padding: "10px",
     color: "#2563eb",
     backgroundColor: "#f8fafc",
+    borderRight: isMobile ? "none" : "2px solid #93c5fd",
+    borderBottom: isMobile ? "2px solid #93c5fd" : "none",
     boxSizing: "border-box",
-  }}>Your Notes
-  <h1>  <NotesList notes={filteredNotes} onSelect={setSelectedNote}/></h1></h3>
+  }}>Your Notes</h3>
+    <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
       
   </div>
 
+        
 
       <div
   style={{
     width: "70%",
     padding: "16px",
-    color: "#0f1011",
-    backgroundColor: "#eceef1",
+    color: "#030711",
+    backgroundColor: "#08b3f7",
   }}
 >
 
@@ -158,8 +167,7 @@ const logout = () => {
 
 <div><button onClick={logout}  style={{background: "#eb0d0d",
     color: "white",
-    padding: "14px 20px",
-    paddingLeft:"50pxs",
+    padding: "8px 14px",
     border: "none",
     borderRadius: "6px",
     cursor: "pointer",}} >Logout </button></div>
@@ -167,7 +175,7 @@ const logout = () => {
 
 
       </div>
-      <div style={{ marginTop: "auto", paddingTop: "20px",paddingLeft:"50px" }}>
+      <div style={{ marginTop: "auto", paddingTop: "20px" }}>
   <a
     href="https://www.instagram.com/unfit_gokul"
     target="_blank"
