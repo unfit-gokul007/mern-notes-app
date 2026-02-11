@@ -110,19 +110,7 @@ const logout = () => {
 >
 
 
-        <h3 style= {{
-    width: isMobile
-      ? "100%"
-      : isTablet
-      ? "40%"
-      : "30%",
-    padding: "12px",
-    backgroundColor: "#f8fafc",
-    borderRight: isMobile ? "none" : "2px solid #93c5fd",
-    borderBottom: isMobile ? "2px solid #93c5fd" : "none",
-    boxSizing: "border-box",
-  }}>Your Notes</h3>
-
+        
 
 <input
   type="text"
@@ -155,6 +143,22 @@ const logout = () => {
 >
   + New Note
 </button>
+
+
+<h3 style= {{
+    width: isMobile
+      ? "100%"
+      : isTablet
+      ? "40%"
+      : "30%",
+    padding: "12px",
+    backgroundColor: "#f8fafc",
+    borderRight: isMobile ? "none" : "2px solid #93c5fd",
+    borderBottom: isMobile ? "2px solid #93c5fd" : "none",
+    boxSizing: "border-box",
+  }}>Your Notes</h3>
+
+
 
         <NotesList
           notes={filteredNotes}
