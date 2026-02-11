@@ -102,7 +102,7 @@ const logout = () => {
   value={search} 
   onChange={(e) => setSearch(e.target.value)}
   style={{
-    color:"#030711",
+    color:"white",
     padding: "8px",
     marginBottom: "10px",
     borderRadius: "6px",
