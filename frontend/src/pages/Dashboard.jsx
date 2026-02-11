@@ -80,9 +80,7 @@ const logout = () => {
     <div
      style={{
     minHeight: "100vh",
-    backgroundColor: "#f8fafc",
-    display: "flex",
-    flexDirection: "column",
+    backgroundColor: "#ffffff",
   }}
 >
 
@@ -107,16 +105,16 @@ const logout = () => {
     padding: "8px",
     marginBottom: "10px",
     borderRadius: "6px",
-    border: "1px solid #93c5fd",
     width: "10%",
+    fontWeight:"bold",
+    color:"black",
   }}
-/></li>
+/>
 
-<button
+<li><button
   onClick={() => setSelectedNote(null)}
    style={{
     width: "95px",
-    paddingLeft: "22px",
     fontWeight: "bold",
     boxSizing: "border-box",
     cursor: "pointer",
@@ -124,7 +122,12 @@ const logout = () => {
 >
   + New Note
 </button>
-            <div style={{paddingLeft:"88px"}}> Your Notes
+</li>
+
+</li>
+
+
+            <div style={{paddingLeft:"5000px"}}> Your Notes
     <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
       </div>
   </div>
