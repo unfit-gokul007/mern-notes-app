@@ -18,12 +18,7 @@ export default function Dashboard() {
 
 
 
-  const width = window.innerWidth;
-
-const isMobile = width <= 640;     // phones
-const isTablet = width > 640 && width <= 1024; // tablets
-const isDesktop = width > 1024;   // laptops & desktops
-
+ 
 
 
 
@@ -92,7 +87,7 @@ const logout = () => {
     fontWeight: "bold",
     color: "#2563eb",
     borderBottom: "1px solid #93c5fd",
-    textAlign: isMobile ? "center" : "left",
+    
   }}>
   Easy Study
 </h2>
@@ -109,12 +104,11 @@ const logout = () => {
     marginBottom: "10px",
     borderRadius: "6px",
     border: "1px solid #93c5fd",
-    width: "30%",
+    width: "10%",
   }}
 />
 
-<div>
-        <button
+<button
   onClick={() => setSelectedNote(null)}
    style={{
     width: "95px",
@@ -128,28 +122,23 @@ const logout = () => {
   + New Note
 </button>
 
-</div>
-
 <h3 style= {{
     padding: "10px",
     color: "#2563eb",
     backgroundColor: "#f8fafc",
-    borderRight: isMobile ? "none" : "2px solid #93c5fd",
-    borderBottom: isMobile ? "2px solid #93c5fd" : "none",
     boxSizing: "border-box",
-  }}>Your Notes</h3>
-    <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
+  }}>Your Notes
+  <h1>  <NotesList notes={filteredNotes} onSelect={setSelectedNote}/></h1></h3>
       
   </div>
 
-        
 
       <div
   style={{
     width: "70%",
     padding: "16px",
-    color: "#030711",
-    backgroundColor: "#08b3f7",
+    color: "#0f1011",
+    backgroundColor: "#eceef1",
   }}
 >
 
@@ -169,7 +158,8 @@ const logout = () => {
 
 <div><button onClick={logout}  style={{background: "#eb0d0d",
     color: "white",
-    padding: "8px 14px",
+    padding: "14px 20px",
+    paddingLeft:"50pxs",
     border: "none",
     borderRadius: "6px",
     cursor: "pointer",}} >Logout </button></div>
@@ -177,7 +167,7 @@ const logout = () => {
 
 
       </div>
-      <div style={{ marginTop: "auto", paddingTop: "20px" }}>
+      <div style={{ marginTop: "auto", paddingTop: "20px",paddingLeft:"50px" }}>
   <a
     href="https://www.instagram.com/unfit_gokul"
     target="_blank"

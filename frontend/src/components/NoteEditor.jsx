@@ -84,7 +84,7 @@ export default function NoteEditor({ note, onSaved,isMobile }) {
 
       <br /><br />
       <button onClick={saveNote} style={{
-    background: "#2563eb",
+    
     color: "white",
     padding: "8px 14px",
     border: "none",
