@@ -98,7 +98,7 @@ const logout = () => {
 </h2>
  
 <div> 
-<input  
+<li  Search Note ><input  
   type="text"
   placeholder="Search notes..."
   value={search} 
@@ -111,7 +111,7 @@ const logout = () => {
     border: "1px solid #93c5fd",
     width: "10%",
   }}
-/>
+/></li>
 
 <button
   onClick={() => setSelectedNote(null)}
@@ -125,10 +125,10 @@ const logout = () => {
   }}
 >
   + New Note
-</button><h1>
+</button>
 Your Notes
     <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
-      </h1>
+      
   </div>
 
         
