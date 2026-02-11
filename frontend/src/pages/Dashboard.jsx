@@ -111,11 +111,11 @@ const logout = () => {
 
 
         
-
-<input
+ 
+<input Search Notes 
   type="text"
   placeholder="Search notes..."
-  value={search}  Search Notes 
+  value={search} 
   onChange={(e) => setSearch(e.target.value)}
   style={{
     padding: "8px",
@@ -131,7 +131,7 @@ const logout = () => {
         <button
   onClick={() => setSelectedNote(null)}
    style={{
-    width: "35%",
+    width: "50%",
     marginBottom: "10px",
     padding: "10px",
     background: "#2563eb",
@@ -157,20 +157,24 @@ const logout = () => {
     borderRight: isMobile ? "none" : "2px solid #93c5fd",
     borderBottom: isMobile ? "2px solid #93c5fd" : "none",
     boxSizing: "border-box",
-  }}>Your Notes</h3></div>
-<div style={{paddingLeft:"10px"}}>
-        <NotesList
+  }}>Your Notes</h3>
+  <p>
+    <NotesList
           notes={filteredNotes}
           onSelect={setSelectedNote}
         />
       
-</div>
+  </p>
+  </div>
+
+        
+
       <div
   style={{
     width: "70%",
     padding: "16px",
     color: "#030711",
-    backgroundColor: "#f7eaea",
+    backgroundColor: "#08b3f7",
   }}
 >
 
@@ -188,7 +192,12 @@ const logout = () => {
   }}
 />
 
-<div><button onClick={logout}  style={{ marginTop: "auto", paddingBottom: "15px" , fontWeight: "bold",color:"red",}} >Logout </button></div>
+<div><button onClick={logout}  style={{background: "#eb0d0d",
+    color: "white",
+    padding: "8px 14px",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",}} >Logout </button></div>
 
 
 
