@@ -51,6 +51,7 @@ export default function NoteEditor({ note, onSaved,isMobile }) {
   return (
     <div  style={{
     padding: "16px",
+    scrollMarginBottom:"300px",
     backgroundColor: "#ffffff",
   }}>
       <h3>{note ? "Edit Note" : "Create Note"}</h3>
@@ -74,7 +75,6 @@ export default function NoteEditor({ note, onSaved,isMobile }) {
         type="file"
         onChange={(e) => setFile(e.target.files[0])}
           style={{
-    marginTop: "10px",
     width: "100%",
     padding: "8px",
     border: "1px solid #93c5fd",
