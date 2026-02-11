@@ -114,7 +114,7 @@ const logout = () => {
 <button
   onClick={() => setSelectedNote(null)}
    style={{
-    paddingLeft:"40px",
+    paddingLeft:"39px",
     width: "100px",
     fontWeight: "bold",
     boxSizing: "border-box",
@@ -128,7 +128,7 @@ const logout = () => {
 </li>
 
 
-            <div style={{paddingLeft:"200px"}}> Your Notes
+            <div style={{paddingLeft:"550px"}}> Your Notes
     <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
       </div>
   </div>
