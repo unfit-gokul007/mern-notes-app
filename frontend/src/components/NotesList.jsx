@@ -9,7 +9,7 @@ export default function NotesList({ notes, onSelect,isMobile }) {
         <div
           key={note._id}
           onClick={() => onSelect(note)}
-            style={{color:"#030711",padding:"10px"}}
+            style={{color:"#030711"}}
         >
           <strong>{note.title || "Untitled"}</strong>
         </div>
