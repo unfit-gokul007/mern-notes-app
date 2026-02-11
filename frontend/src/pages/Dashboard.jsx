@@ -127,7 +127,7 @@ const logout = () => {
 </li>
 
 
-            <div style={{paddingLeft:"98px"}}> Your Notes
+            <div style={{paddingLeft:"40px"}}> Your Notes
     <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
       </div>
   </div>
