@@ -122,7 +122,7 @@ const logout = () => {
     marginBottom: "10px",
     borderRadius: "6px",
     border: "1px solid #93c5fd",
-    width: "100%",
+    width: "30%",
   }}
 />
 
@@ -130,7 +130,7 @@ const logout = () => {
         <button
   onClick={() => setSelectedNote(null)}
    style={{
-    width: "100%",
+    width: "35%",
     marginBottom: "10px",
     padding: "10px",
     background: "#2563eb",
@@ -158,12 +158,9 @@ const logout = () => {
     boxSizing: "border-box",
   }}>Your Notes</h3>
 
-
-
         <NotesList
           notes={filteredNotes}
           onSelect={setSelectedNote}
-           isMobile={isMobile}
         />
       </div>
 
