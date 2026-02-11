@@ -102,19 +102,20 @@ const logout = () => {
   value={search} 
   onChange={(e) => setSearch(e.target.value)}
   style={{
+    color:"#030711",
     padding: "8px",
     marginBottom: "10px",
     borderRadius: "6px",
     width: "10%",
     fontWeight:"bold",
-    color:"black",
+    
   }}
 />
-
-<li><button
+<button
   onClick={() => setSelectedNote(null)}
    style={{
-    width: "95px",
+    paddingLeft:"10px",
+    width: "100px",
     fontWeight: "bold",
     boxSizing: "border-box",
     cursor: "pointer",
@@ -122,12 +123,12 @@ const logout = () => {
 >
   + New Note
 </button>
+
+
 </li>
 
-</li>
 
-
-            <div style={{paddingLeft:"40px"}}> Your Notes
+            <div style={{paddingLeft:"80px"}}> Your Notes
     <NotesList notes={filteredNotes} onSelect={setSelectedNote}/>
       </div>
   </div>
